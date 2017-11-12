@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Brian Wise | Portfolio</title>
+	
+	<link rel="stylesheet" href="css/styles.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:100,300" rel="stylesheet">
+	
+	<script type="text/javascript" src="scripts/script.js"></script>
+</head>
+
+<body>
+	<header class="row">
+		<h1 class="main-title">Chicago Symphony Orchestra</h1>
+		<h3 id="subtitle">On the Radio</h4>
+		</header>
+
+		<article>
+			<div id="main-image">
+				<img id="placeholder" src="images/esa-pekka-salonen.jpg">
+			</div>
+
+			<p id="description">Above: Esa-Pekka Salonen.  Click on the thumbnails below for photos of each artist.<br>
+
+				<figure class="player">
+					<audio id="audio" controls="controls">
+						<source id="audioSource" src="audio/atrain.wav"></source>
+						Your browser does not support the audio format.
+					</audio>
+				</figure>
+
+			</p>
+			<ul id="imagegallery">
+				<!-- <a href="#"> -->
+					<li><a href="images/james-gaffigan.jpg" onclick="showPic(this); return false;" title="James Gaffigan conducts Bizet"><img id="smallimage" src="images/james-gaffigan-small.jpg" alt="Gaffigan" data-value="audio/bizet.mp3"></a></li>
+
+					<li><a href="images/chris-martin-trumpet.jpg" onclick="showPic(this); return false;" title="Chris Martin"><img id="smallimage" src="images/chris-martin-trumpet-small.jpg" alt="Martin" data-value="audio/brahms.mp3"></a></li>
+
+
+					<li>
+						<a href="images/denis-matsuev.jpg" onclick="showPic(this); return false;" title="Denis Matsuev"><img src="images/denis-matsuev-small.jpg" alt="Matsuev" data-value="audio/atrain.wav"></a>
+					</li>
+
+					<li>
+						<a href="images/leila-josefowicz.jpg" onclick="showPic(this); return false;" title="Leila Josefowicz"><img src="images/leila-josefowicz-small.jpg" alt="Josefowicz" data-value="audio/williams.mp3"></a>
+					</li>
+
+					<li>
+						<a href="images/Edo-DeWaart.jpg"  onclick="showPic(this); return false;" title="Edo de Waart conducts Mozart"><img src="images/EdoDeWaart-small.jpg" alt="Ed Waart" data-value="audio/mozart39.mp3"></a>
+					</li>
+
+					<li>
+						<a href="images/Yuri-Temirkanov.jpg"  onclick="showPic(this); return false;" title="Yuri Temirkanov conducts Tchaikovsky"><img src="images/Yuri-Temirkanov-small.jpg" alt="Yuri Temirkanov" data-value="audio/tchaikovsky.mp3"></a>
+					</li>  
+
+					<li>
+						<a href="images/James-Feddeck.jpg"  onclick="showPic(this); return false;" title="James Feddeck conducts Iberia"><img src="images/James-Feddeck-small.jpg" alt="James Feddeck" data-value="audio/iberia.mp3"></a>
+					</li>
+
+					<li>
+						<a href="images/Martin-Helmchen.jpg"  onclick="showPic(this); return false;" title="Martin Helmchen"><img src="images/Martin-Helmchen-small.jpg" alt="Martin Helmchen performs Faure" data-value="audio/faure.mp3"></a>
+					</li>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<form name=newsletter method=POST action=http://oit2.scps.nyu.edu/~sultans/util/form/formTest.cgi>
+
+		<fieldset>
+			<legend>Sign up for broadcast updates</legend>
+
+			<p>First Name:
+				<input type="text" name="firstname" size="25" class=input>
+				<span id=f1 class=hide>*</span>
+			</p>
+
+			<p>Last Name:
+				<input type="text" name="lastname" size="25" class=input>
+				<span id=f2 class=hide>*</span>
+			</p>
+
+
+			<p>How often would you like to receive updates? <span id=f3 class=hide>*</span></br>
+
+				<div id="frequency"><input type="radio" name="often" value="Weekly" checked="checked"> Weekly <br></div>
+				<div id="frequency"><input type="radio" name="often" value="Monthly"> Monthly <br></div>
+				<div id="frequency"><input type="radio" name="often" value="Annually"> Annually <br></div>
+			</p>
+
+			<p>What device do you listen to music on? <span id=f4 class=hide>*</span></p>
+			<select name="devices" id=choice size=4 multiple class=input type="select-multiple" style='width:422'>
+				<option value="iphone">iPhone</option>
+				<option value="alexa">Alexa, Google Home, etc.</option>
+				<option value="computer">Computer</option>
+				<option value="stereo">Hi-Fi Stereo</option>
+			</select><p>
+
+				<input type=submit id=btn onmouseover="myFunction()" value='       Sign Up!        ' onClick=" return validate()">
+				<input type=reset  value='Clear'>  
+			</fieldset>
+			<div id=f5 class=hide>Please correct error fields above</div>
+		</form>
+
+
+
+	</article>
+	<footer>
+		<p>Copyright 2017 | Brian Wise</p>
+	</footer>
+	<script>
+		imagegallery.onclick = function(e) {
+			e.preventDefault();
+
+			var audioplayer = e.target;
+			var audio = document.getElementById('audio');
+
+			var source = document.getElementById('audioSource');
+			source.src = audioplayer.getAttribute('data-value');
+
+  audio.load(); //call this to just preload the audio without playing
+  audio.play(); //call this to play the song right away
+
+
+</script>
+</body>
+</html>
